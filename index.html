@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- daisyUi -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Job Application Tracker</title>
 </head>
-<body class="bg-gray-200">
-    <header class="w-[80%] mx-auto mt-[60px]">
+<body class="bg-gray-200 min-h-screen ">
+    <header class="w-[80%] mx-auto pt-[60px]">
         <h2 class="font-bold text-[32px] text-black">Job Application Tracker</h2>
         <div class="grid grid-cols-3   mt-[20px] space-x-[16px] ">
             <div class="bg-white border border-[#F1F2F4] h-[97px] p-[20px] shadow rounded-[8px]">
@@ -24,6 +26,20 @@
             </div>
         </div>
     </header>
+    <!--  hr line  -->
+      <hr class="w-[80%] mx-auto text-[#44474d] mt-[40px]">
+    <!--  job section -->
+      <section class="jobs w-[80%] mx-auto mt-[30px] ">
+        <div class="flex justify-between items-center">
+            <h2 class="font-[600] text-[20px] text-[#002C5C] ">Available Jobs</h2>
+            <p class="text-[#323B49] text-[16px] font-[500]"><span>8</span> jobs</p>
+        </div>
+        <div class="flex space-x-2 mt-[24px]">
+            <button class="btn px-[32px] py-[10px] text-[12px] font-semibold rounded-[4px] text-white bg-[#3B82F6]">Hello</button>
+            <button class="btn px-[32px] py-[10px] text-[12px] font-semibold rounded-[4px] text-[#64748B]">Interview</button>
+            <button class="btn px-[32px] py-[10px] text-[12px] font-semibold rounded-[4px] text-[#64748B]">Rejected</button>  
+        </div>
+      </section>
     
 </body>
 </html> 
