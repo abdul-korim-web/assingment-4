@@ -207,7 +207,7 @@ const getAllJobs = () => {
     // const divTag = document.createElement(`div`)
     // divTag.classList.add(card)
     return `
-        <div class="card  bg-base-100 card-xs shadow-sm">
+        <div id="mainContainer" class="card  bg-base-100 card-xs shadow-sm">
         <div class="card-body p-[24px] ">
           <div class="flex justify-between items-center">
             <div>
@@ -215,7 +215,7 @@ const getAllJobs = () => {
                 <p class="text-[#64748B] text-[16px] ">${item?.position}</p>
             </div>
             <div>
-                <button onclick="deleteJob(${item?.id})" class="btn w-[32px] h-[32px] rounded-full border border-[#64748B] bg-white"><i class="fa-regular fa-trash-can"></i></button>
+                <button id="deleteJobBtn"  class="btn w-[32px] h-[32px] rounded-full border border-[#64748B] bg-white"><i class="fa-regular fa-trash-can"></i></button>
             </div>
           </div>
           <div>
@@ -226,7 +226,7 @@ ${item?.jobType}
  <span>${item?.salaryMin}</span> - <span>${item?.salaryMax}</span></h2>
           </div>
           <div class=" mt-5 ">
-            <h2 class="text-[14px] font-[500] text-[#002C5C] py-2 px-3 bg-[#EEF4FF] w-[113px]">${item?.status}</h2>
+            <h2 class="text-[14px] font-[500] text-[#002C5C] py-2 px-3 bg-[#EEF4FF] w-[113px] flex justify-center items-center">${item?.status}</h2>
             <p class="text-[14px] text-[#323B49] mt-2">${item?.description}</p>
 
           </div>
@@ -243,49 +243,7 @@ ${item?.jobType}
   jobSection.innerHTML = jobData.join("");
 };
 getAllJobs();
-const deleteJob = (id) => {
-  console.log(id);
-//   const jobDataFilter = allJobs.filter((item) => item?.id !== id);
-//  const jobDataInsert = jobDataFilter.map((item) => {
-//     // const divTag = document.createElement(`div`)
-//     // divTag.classList.add(card)
-//     return `
-//         <div class="card  bg-base-100 card-xs shadow-sm">
-//         <div class="card-body p-[24px] ">
-//           <div class="flex justify-between items-center">
-//             <div>
-//                 <h2 class="text-[18px] font-[600] text-[#002C5C]">${item?.company}</h2>
-//                 <p class="text-[#64748B] text-[16px] ">${item?.position}</p>
-//             </div>
-//             <div>
-//                 <button onclick="deleteJob(${item?.id})" class="btn w-[32px] h-[32px] rounded-full border border-[#64748B] bg-white"><i class="fa-regular fa-trash-can"></i></button>
-//             </div>
-//           </div>
-//           <div>
-//            <h2 class="text-[#64748B] text-[14px] ">${item?.location}
-//  • 
-// ${item?.jobType} 
-// •
-//  <span>${item?.salaryMin}</span> - <span>${item?.salaryMax}</span></h2>
-//           </div>
-//           <div class=" mt-5 ">
-//             <h2 class="text-[14px] font-[500] text-[#002C5C] py-2 px-3 bg-[#EEF4FF] w-[113px]">${item?.status}</h2>
-//             <p class="text-[14px] text-[#323B49] mt-2">${item?.description}</p>
 
-//           </div>
-//           <div class="flex space-x-2 mt-5 items-center">
-//             <button class="btn bg-transparent text-[#10B981] text-[14px] font-[600] px-3 py-2  rounded-[4px] border border-[#10B981] ">interview</button>
-//             <button class="btn bg-transparent text-[#EF4444] text-[14px] font-[600] px-3 py-2  rounded-[4px] border border-[#EF4444] ">Rejected</button>
-//           </div>
-//       </div>
-//       </div>
-        
-//         `;
-//   });
-//    jobSection.innerHTML = jobDataInsert.join("")
-allJobs.unshift()
-};
-//  button trogoling
 const buttonTroggle = (id)=>{
  const AllButton = document.getElementById("AllButton")
  const InterviewButton = document.getElementById("InterviewButton")
@@ -338,7 +296,7 @@ const rejectedCardBtn = (id)=>{
   } 
   const exitRejectdData = rejectedJobs.find(item=>item.id===id)
   if (exitRejectdData) {
-    return alert(`${exitData?.company} is already exit `)
+    return alert(`${exitRejectdData?.company} is already exit `)
     
   } 
   rejectedJobs.push({...findRejectdData,status:"Rejected"})
@@ -353,7 +311,7 @@ InterviewButton.addEventListener("click",()=>{
    const interViewData = interviewJobs.map((item) => {
    
     return `
-        <div class="card  bg-base-100 card-xs shadow-sm">
+        <div id="mainContainer" class="card  bg-base-100 card-xs shadow-sm">
         <div class="card-body p-[24px] ">
           <div class="flex justify-between items-center">
             <div>
@@ -361,7 +319,7 @@ InterviewButton.addEventListener("click",()=>{
                 <p class="text-[#64748B] text-[16px] ">${item?.position}</p>
             </div>
             <div>
-                <button onclick="deleteJob(${item?.id})" class="btn w-[32px] h-[32px] rounded-full border border-[#64748B] bg-white"><i class="fa-regular fa-trash-can"></i></button>
+                <button id="deleteJobBtn"  class="btn w-[32px] h-[32px] rounded-full border border-[#64748B] bg-white"><i class="fa-regular fa-trash-can"></i></button>
             </div>
           </div>
           <div>
@@ -372,7 +330,7 @@ ${item?.jobType}
  <span>${item?.salaryMin}</span> - <span>${item?.salaryMax}</span></h2>
           </div>
           <div class=" mt-5 ">
-            <h2 class="text-[14px] font-[500] text-[#002C5C] py-2 px-3 bg-[#EEF4FF] w-[113px]">${item?.status}</h2>
+            <h2 class="text-[14px] font-[500]  py-2 px-3 text-white bg-[#10B981]  w-[113px] flex justify-center items-center">${item?.status}</h2>
             <p class="text-[14px] text-[#323B49] mt-2">${item?.description}</p>
 
           </div>
@@ -389,15 +347,77 @@ ${item?.jobType}
   interviewJobsSection.innerHTML = interViewData.join("");
   
 })
+RejectedButton.addEventListener("click",()=>{
+  jobSection.classList.add("hidden")
+  rejectedSection.classList.remove("hidden")
+  interviewJobsSection.classList.add("hidden")
+   const rejectedData = rejectedJobs.map((item) => {
+   
+    return `
+        <div id="mainContainer" id="mainContainer" class="card  bg-base-100 card-xs shadow-sm">
+        <div class="card-body p-[24px] ">
+          <div class="flex justify-between items-center">
+            <div>
+                <h2 class="text-[18px] font-[600] text-[#002C5C]">${item?.company}</h2>
+                <p class="text-[#64748B] text-[16px] ">${item?.position}</p>
+            </div>
+            <div>
+                <button id="deleteJobBtn"  class="btn w-[32px] h-[32px] rounded-full border border-[#64748B] bg-white"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
+          </div>
+          <div>
+           <h2 class="text-[#64748B] text-[14px] ">${item?.location}
+ • 
+${item?.jobType} 
+•
+ <span>${item?.salaryMin}</span> - <span>${item?.salaryMax}</span></h2>
+          </div>
+          <div class=" mt-5 ">
+            <h2 class="text-[14px] font-[500]  py-2 px-3 text-white bg-[#EF4444]  w-[113px] flex justify-center items-center">${item?.status}</h2>
+            <p class="text-[14px] text-[#323B49] mt-2">${item?.description}</p>
+
+          </div>
+          <div class="flex space-x-2 mt-5 items-center">
+            <button  class="btn bg-transparent text-[#10B981] text-[14px] font-[600] px-3 py-2  rounded-[4px] border border-[#10B981] " onclick= "interviewBtn(${item?.id})">interview</button>
+            <button class="btn bg-transparent text-[#EF4444] text-[14px] font-[600] px-3 py-2  rounded-[4px] border border-[#EF4444] ">Rejected</button>
+          </div>
+      </div>
+      </div>
+        
+        `;
+  });
+  //  insert data in section
+  rejectedSection.innerHTML = rejectedData.join("");
+  
+})
+//  delete data 
+document.getElementById("all-jobs").addEventListener("click",(event)=>{
+  console.log(event.target);
+  // const deleteButtonMotherDiv = event.target.parentNode
+ if (event.target.classList.contains("fa-trash-can") ) {
+   const targetCardDiv = event.target.parentNode.parentNode.parentNode.parentNode
+   targetCardDiv.classList.add("hidden")
+  }
+})
+document.getElementById("interviewJobsSection").addEventListener("click",(event)=>{
+  console.log(event.target);
+  // const deleteButtonMotherDiv = event.target.parentNode
+ if (event.target.classList.contains("fa-trash-can") ) {
+   const targetCardDiv = event.target.parentNode.parentNode.parentNode.parentNode
+   targetCardDiv.classList.add("hidden")
+  }
+})
+document.getElementById("rejectedSection").addEventListener("click",(event)=>{
+  // console.log(event.target);
+  // const deleteButtonMotherDiv = event.target.parentNode
+ if (event.target.classList.contains("fa-trash-can") ) {
+   const targetCardDiv = event.target.parentNode.parentNode.parentNode.parentNode
+   targetCardDiv.classList.add("hidden")
+  }
+})
 const AllButton = document.getElementById("AllButton")
 AllButton.addEventListener("click",()=>{
 jobSection.classList.remove("hidden")
   rejectedSection.classList.add("hidden")
-  interviewJobsSection.classList.add("hidden")
-})
-const RejectedButton = document.getElementById("RejectedButton")
-RejectedButton.addEventListener("click",()=>{
-RejectedButton.classList.remove("hidden")
-  jobSection.classList.add("hidden")
   interviewJobsSection.classList.add("hidden")
 })
