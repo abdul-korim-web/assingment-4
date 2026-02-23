@@ -232,7 +232,7 @@ ${item?.jobType}
           </div>
           <div class="flex space-x-2 mt-5 items-center">
             <button  class="btn bg-transparent text-[#10B981] text-[14px] font-[600] px-3 py-2  rounded-[4px] border border-[#10B981] " onclick= "interviewBtn(${item?.id})">interview</button>
-            <button class="btn bg-transparent text-[#EF4444] text-[14px] font-[600] px-3 py-2  rounded-[4px] border border-[#EF4444] ">Rejected</button>
+            <button onclick= "rejectedCardBtn(${item?.id})" class="btn bg-transparent text-[#EF4444] text-[14px] font-[600] px-3 py-2  rounded-[4px] border border-[#EF4444] ">Rejected</button>
           </div>
       </div>
       </div>
@@ -310,8 +310,9 @@ const buttonTroggle = (id)=>{
     
 //   }
 // })
+//  push interview data
 const interviewBtn =(id)=>{
-  console.log(id);
+  // console.log(id);
   const findData = allJobs.find(item=>item.id===id)
   if (!findData) {
     return alert("something went wrong")
@@ -322,13 +323,28 @@ const interviewBtn =(id)=>{
     return alert(`${exitData?.company} is already exit `)
     
   } 
-  interviewJobs.push(findData)
-  // console.log(interviewJobs);
+  interviewJobs.push({...findData,status:"Interview"})
+  console.log(interviewJobs);
   calculateJobs()
  
    
 }
-
+//  push rejected data 
+const rejectedCardBtn = (id)=>{
+  const findRejectdData = allJobs.find(item=>item.id===id)
+  if (!findRejectdData) {
+    return alert("something went wrong")
+    
+  } 
+  const exitRejectdData = rejectedJobs.find(item=>item.id===id)
+  if (exitRejectdData) {
+    return alert(`${exitData?.company} is already exit `)
+    
+  } 
+  rejectedJobs.push({...findRejectdData,status:"Rejected"})
+  console.log(rejectedJobs);
+  calculateJobs()
+}
 const InterviewButton = document.getElementById("InterviewButton")
 InterviewButton.addEventListener("click",()=>{
   jobSection.classList.add("hidden")
