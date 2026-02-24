@@ -311,7 +311,7 @@ InterviewButton.addEventListener("click",()=>{
    const interViewData = interviewJobs.map((item) => {
    
     return `
-        <div id="mainContainer" class="card  bg-base-100 card-xs shadow-sm">
+        <div id="mainContainer" class="card shadow-2xl bg-base-100 card-xs ">
         <div class="card-body p-[24px] ">
           <div class="flex justify-between items-center">
             <div>
